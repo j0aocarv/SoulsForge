@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b82m0wi3xy6r3"
+path="res://.godot/imported/Galaxy II.mp3-827534a5265edf617f9cc09646841d72.mp3str"
+
+[deps]
+
+source_file="res://Galaxy II.mp3"
+dest_files=["res://.godot/imported/Galaxy II.mp3-827534a5265edf617f9cc09646841d72.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
