@@ -1,15 +1,35 @@
-[gd_scene load_steps=13 format=3 uid="uid://qsgkkayys20u"]
+[gd_scene load_steps=23 format=3 uid="uid://qsgkkayys20u"]
 
 [ext_resource type="Script" uid="uid://b30lcpmx6d7bh" path="res://title_screen.gd" id="1_hafda"]
-[ext_resource type="Texture2D" uid="uid://cb4m4kcfkt36c" path="res://interface/bg.png" id="1_v6p8y"]
 [ext_resource type="Texture2D" uid="uid://wge15062hlog" path="res://interface/SoulsForge-logo.png" id="2_ak2if"]
-[ext_resource type="Texture2D" uid="uid://cw0jqusiykny1" path="res://interface/btn-play.png" id="3_ig5kc"]
-[ext_resource type="Texture2D" uid="uid://ccwkg7x4n0jg0" path="res://interface/btn-exit.png" id="4_05l2w"]
+[ext_resource type="Shader" uid="uid://buaaowkmj2abn" path="res://shaders/title_screen.gdshader" id="2_hafda"]
+[ext_resource type="Texture2D" uid="uid://u0lwsh56rb5t" path="res://assets/bg-ooficial.png" id="3_hafda"]
+[ext_resource type="FontFile" uid="uid://citwa0piubtos" path="res://assets/fonts/Minecraft.ttf" id="5_tpml5"]
 [ext_resource type="AudioStream" uid="uid://b82m0wi3xy6r3" path="res://Galaxy II.mp3" id="6_tpml5"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpml5"]
+shader = ExtResource("2_hafda")
+shader_parameter/speed = Vector2(0.05, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hafda"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpml5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqemp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_013yr"]
+
 [sub_resource type="Theme" id="Theme_05l2w"]
+default_font = ExtResource("5_tpml5")
 Button/colors/font_color = Color(1, 1, 1, 1)
-Button/icons/icon = ExtResource("3_ig5kc")
+Button/colors/font_hover_color = Color(1, 0.615686, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0.611765, 1)
+Button/font_sizes/font_size = 49
+Button/fonts/font = ExtResource("5_tpml5")
+Button/styles/disabled = SubResource("StyleBoxEmpty_hafda")
+Button/styles/focus = SubResource("StyleBoxEmpty_tpml5")
+Button/styles/hover = SubResource("StyleBoxEmpty_jqemp")
+Button/styles/pressed = SubResource("StyleBoxEmpty_013yr")
 
 [sub_resource type="GDScript" id="GDScript_tpml5"]
 script/source = "extends Button
@@ -17,8 +37,26 @@ func _on_Button_pressed():
 	get_tree().change_scene_to_file(\"res://primaryScene.tscn\")
 "
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lf08s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xfn3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhgbh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_skmiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vmu4"]
+
 [sub_resource type="Theme" id="Theme_hafda"]
-Button/icons/icon = ExtResource("4_05l2w")
+default_font = ExtResource("5_tpml5")
+Button/colors/font_hover_color = Color(1, 0.615686, 0, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("5_tpml5")
+Button/styles/disabled = SubResource("StyleBoxEmpty_lf08s")
+Button/styles/focus = SubResource("StyleBoxEmpty_xfn3p")
+Button/styles/hover = SubResource("StyleBoxEmpty_rhgbh")
+Button/styles/normal = SubResource("StyleBoxEmpty_skmiq")
+Button/styles/pressed = SubResource("StyleBoxEmpty_8vmu4")
 
 [sub_resource type="Animation" id="Animation_tpml5"]
 length = 0.001
@@ -91,10 +129,11 @@ grow_vertical = 2
 script = ExtResource("1_hafda")
 
 [node name="bg" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_tpml5")
 layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_v6p8y")
+texture = ExtResource("3_hafda")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -122,12 +161,14 @@ texture = ExtResource("2_ak2if")
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_05l2w")
+text = "Play"
 flat = true
 script = SubResource("GDScript_tpml5")
 
 [node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_hafda")
+text = "Exit"
 flat = true
 
 [node name="anim" type="AnimationPlayer" parent="."]
